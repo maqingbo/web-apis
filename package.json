@@ -1,0 +1,29 @@
+{
+  "name": "web-apis",
+  "version": "1.0.0",
+  "description": "个人前端学习知识点查漏补缺。",
+  "main": "index.js",
+  "dependencies": {
+    "vuepress": "^1.8.2"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-medium-zoom": "^1.8.2",
+    "eslint": "^8.11.0",
+    "eslint-config-standard": "^16.0.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vuepress dev docs",
+    "dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "deploy": "bash deploy.sh"
+  },
+  "repository": "git+https://github.com/maqingbo/web-apis.git",
+  "keywords": [],
+  "author": "maqingbo <wmaqingbo@163.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maqingbo/web-apis/issues"
+  },
+  "homepage": "https://github.com/maqingbo/web-apis#readme"
+}
