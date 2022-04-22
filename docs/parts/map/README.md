@@ -25,50 +25,60 @@ MDN 页面介绍 API 时也是分了两大块：Specifications（规范）和 In
 
 ## 规范分类
 
-我们以 [W3C 官网](https://www.w3.org/TR/?tag=webapi) 为准，抓取到目前状态是 PR 和 REC 的 api，一共 35 个：
+规范并不是全部放在 [W3C](https://www.w3.org/TR/) 网站上，有一部分在 [WHATWG](https://spec.whatwg.org/)。这两个机构的恩怨纠缠我们在此不做展开。
 
-```js
-{
-  PR: [
-    "geolocation api",
-    "payment request api",
-    "cooperative scheduling of background tasks"
-  ],
-  REC: [
-    "web audio api",
-    "web storage (second edition)",
-    "server-sent events",
-    "html5 web messaging",
-    "webrtc 1.0: real-time communication between browsers",
-    "json-ld 1.0 processing algorithms and api",
-    "progress events",
-    "web notifications",
-    "webassembly javascript interface",
-    "high resolution time",
-    "high resolution time level 2",
-    "pointer events",
-    "user timing",
-    "user timing level 2",
-    "widget interface",
-    "webdriver",
-    "html media capture",
-    "indexed database api 2.0",
-    "encrypted media extensions",
-    "web cryptography api",
-    "webidl level 1",
-    "media source extensions™",
-    "geolocation api specification 2nd edition",
-    "pointer lock",
-    "vibration api (second edition)",
-    "indexed database api",
-    "metadata api for media resources 1.0",
-    "performance timeline",
-    "page visibility (second edition)",
-    "touch events",
-    "navigation timing"
-  ]
-}
-```
+[WHATWG](https://spec.whatwg.org/) 负责维护以下几项：
+
+- HTML
+- DOM
+- XMLHttpRequest
+- WebSockets
+- Fetch
+- File System
+- Fullscreen API
+- Storage
+- Streams
+- URL
+- Web IDL
+
+[W3C 官网](https://www.w3.org/TR/?tag=webapi) 上目前状态是 PR 和 REC 的 api，一共 35 个：
+
+- PR
+  - geolocation api
+  - payment request api
+  - cooperative scheduling of background tasks
+- REC
+  - web audio api
+  - web storage (second edition)
+  - server-sent events
+  - html5 web messaging
+  - webrtc 1.0: real-time communication between browsers
+  - json-ld 1.0 processing algorithms and api
+  - progress events
+  - web notifications
+  - webassembly javascript interface
+  - high resolution time
+  - high resolution time level 2
+  - pointer events
+  - user timing
+  - user timing level 2
+  - widget interface
+  - webdriver
+  - html media capture
+  - indexed database api 2.0
+  - encrypted media extensions
+  - web cryptography api
+  - webidl level 1
+  - media source extensions™
+  - geolocation api specification 2nd edition
+  - pointer lock
+  - vibration api (second edition)
+  - indexed database api
+  - metadata api for media resources 1.0
+  - performance timeline
+  - page visibility (second edition)
+  - touch events
+  - navigation timing
 
 ## 参考
 
