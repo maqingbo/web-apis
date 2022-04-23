@@ -48,18 +48,69 @@ EventTarget
 
 ### 增强了 Document 对象
 
-也就是新增了 HTMLDocument 对象，具体在以下几个方面：
+也就是新增了 HTMLDocument HTMLDocument 的实例 document 来标识整个文档。一些文档层面的方法和属性挂载在这个对象上的原型对象上。具体在以下几个方面：
 
-- 支持在加载页面时访问 HTTP 标头提供的各种信息，例如加载文档的位置、cookie、修改日期、引用站点等。
-- 允许获取 head 和 body 块中的元素
-- 支持通过检查焦点和对可编辑内容执行命令来与用户交互。
-- HTML 标准定义的文档事件的事件处理程序，允许访问鼠标和键盘事件、拖放、媒体控制等。
-- 可以传递给元素和文档的事件的事件处理程序；这些目前仅包括复制、剪切和粘贴操作。
+- 支持访问 HTTP header 中的一些信息，例如 location, cookie, lastModified, referrer 等。
+- 允许获取 `<head>` 和 `<body>` 中的一些元素列表，例如：images, links, scripts，返回一个 HTMLCollection.
+- 支持检查文档是否获取了焦点 (hasFocus).
+- 新增了全局属性 contenteditable.
+- 新增了事件处理程序，例如：鼠标和键盘事件、拖放、媒体控制等。混入了 GlobalEventHandlers 中的事件。
+- 新增了一些 Document 和 Element 都可以使用的的事件处理程序，目前仅包括 copy、cut、paste.
 
 ### 增强了 Element 对象
 
-具体表现为新增了 HTMLElement 对象，这个对象上添加了 [GlobalEventHandlers（DOM 0 级事件处理程序）](https://maqingbo.github.io/fe-mindmap/parts/webApis/event.html#globaleventhandlers)，并且提供了所有 HTML 元素共有的功能。在这之后再为每种 html 标签新增单独的`HTML*Element`对象（几乎一一对应），来提供每种 HTML 元素独有的功能。
+具体表现为：
 
+- 新增了 HTMLElement 对象，继承自 Element，这个对象上混入了 [GlobalEventHandlers](https://maqingbo.github.io/fe-mindmap/parts/webApis/event.html#globaleventhandlers) 中的所有事件，并且提供了所有 HTML 元素共有的一些功能。例如：accessKey、offsetLeft、style、title 等。
+- 在这之后再为每种 html 标签新增单独的`HTML*Element`对象（几乎一一对应），继承自 HTMLElement，来提供每种 HTML 元素独有的功能。
+
+下面是一个例子，在 Chrome 控制台中打印的 ul 元素（略去了部分属性）。
+
+```yaml
+nodeName: "UL",
+nodeType: 1,
+nodeValue: null,
+...
+[[prototype]]: HTMLUListElement
+  constructor: HTMLUListElement()
+  ...
+  # 特定的 ul 类型的节点
+  [[Prototype]]: HTMLElement
+    constructor: HTMLElement()
+    blur: blur()
+    click: click()
+    focus: focus()
+    innerText: ""
+    ...
+    # HTMLElement 构造函数的原型对象上挂载了很多 HTML 元素自有的属性和方法
+    # 结合上图可知，这些属性和方法在 SVG 中是不可用的
+    [[Prototype]]: Element
+      constructor: Element()
+      getElementsByClassName: getElementsByClassName()
+      getElementsByTagName: getElementsByTagName()
+      querySelector: querySelector()
+      querySelectorAll: querySelectorAll()
+      ...
+      # Element 构造函数的原型对象上也挂载了很多共有的属性和方法，且在 SVG 中也是可用的
+      [[Prototype]]: Node
+        constructor: Node()
+        nodeName: "UL"
+        nodeType: 1
+        appendChild: appendChild()
+        ...
+        # Node 类型是最基本的类型，有一些 DOM 节点最基本的共有属性和方法
+        [[Prototype]]: EventTarget
+          constructor: EventTarget()
+          addEventListener: addEventListener()
+          dispatchEvent: dispatchEvent()
+          removeEventListener: removeEventListener()
+          # EventTarget 对象用来处理事件，只挂载了这三个方法
+          [[Prototype]]: Object
+            constructor: Object()
+            hasOwnProperty: hasOwnProperty()
+            isPrototypeOf: isPrototypeOf()
+            ...
+```
 
 ## 参考
 

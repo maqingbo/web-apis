@@ -19,22 +19,24 @@ module.exports = {
       { title: '总览', path: '/parts/map/' },
       // 侧边栏分组
       {
-        title: '操作文档',   // 必要的
+        title: '文档相关',   // 必要的
         path: '/parts/document/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
         collapsable: false, // 可选的, 默认值是 true,
         sidebarDepth: 1,    // 可选的, 默认值是 1
         children: [
           ['/parts/document/DOM', 'DOM'],
+          // ['/parts/document/html', 'HTML'],
           ['/parts/document/htmlDOM', 'HTML DOM'],
           ['/parts/document/htmlDragAndDrop', 'HTML Drag and Drop']
         ]
       },
       {
-        title: '获取数据',
+        title: '获取资源',
         path: '/parts/getData/',
         collapsable: false,
         children: [
           ['/parts/getData/XHR', 'XMLHttpRequest'],
+          // ['/parts/getData/formData', 'FormData'],
           ['/parts/getData/fetch', 'Fetch']
         ]
       },
