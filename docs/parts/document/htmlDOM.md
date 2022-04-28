@@ -1,4 +1,6 @@
-DOM 模型不能满足 HTML 文档的需求，HTML DOM API 在 DOM 的基础上进行了拓展。
+DOM 模型不能完全满足 HTML 文档的需求，所以 HTML DOM 在 DOM 的基础上进行了拓展。
+
+HTML DOM 这个名称只在 MDN 上出现了，它属于 [HTML API](https://html.spec.whatwg.org/) 的一部分，关于 DOM 的那一部分。广义上的 HTML API 还包括 BOM、setTimeOut、alert 等，涉及的内容确实较多，把它们进行拆分是一个很好的方法，下面的简述中我们也会沿用这个名称。
 
 HTML DOM API 包括以下几个方面：
 
@@ -54,15 +56,15 @@ EventTarget
 - 允许获取 `<head>` 和 `<body>` 中的一些元素列表，例如：images, links, scripts，返回一个 HTMLCollection.
 - 支持检查文档是否获取了焦点 (hasFocus).
 - 新增了全局属性 contenteditable.
-- 新增了事件处理程序，例如：鼠标和键盘事件、拖放、媒体控制等。混入了 GlobalEventHandlers 中的事件。
+- 新增了事件处理程序，例如：鼠标和键盘事件、拖放、媒体控制等。混入了 GlobalEventHandlers 中的事件名称作为属性。
 - 新增了一些 Document 和 Element 都可以使用的的事件处理程序，目前仅包括 copy、cut、paste.
 
 ### 增强了 Element 对象
 
 具体表现为：
 
-- 新增了 HTMLElement 对象，继承自 Element，这个对象上混入了 [GlobalEventHandlers](https://maqingbo.github.io/fe-mindmap/parts/webApis/event.html#globaleventhandlers) 中的所有事件，并且提供了所有 HTML 元素共有的一些功能。例如：accessKey、offsetLeft、style、title 等。
-- 在这之后再为每种 html 标签新增单独的`HTML*Element`对象（几乎一一对应），继承自 HTMLElement，来提供每种 HTML 元素独有的功能。
+- 新增了 HTMLElement 对象，继承自 Element，这个对象上混入了 [GlobalEventHandlers](https://maqingbo.github.io/fe-mindmap/parts/webApis/event.html#globaleventhandlers) 中的所有事件名称作为属性，并且提供了所有 HTML 元素共有的一些功能。例如：accessKey、offsetLeft、style、title 等。
+- 在这之后再为每种 html 标签新增单独的`HTML*Element`对象（几乎一一对应），继承自 HTMLElement，来提供每种 HTML 元素独有的功能，通过 JS 操作元素时返回的就是这个对象。
 
 下面是一个例子，在 Chrome 控制台中打印的 ul 元素（略去了部分属性）。
 

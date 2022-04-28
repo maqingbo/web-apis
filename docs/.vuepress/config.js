@@ -11,6 +11,9 @@ module.exports = {
   },
   plugins: ['@vuepress/medium-zoom'],
   themeConfig: {
+    nav: [
+      { text: 'GitHub', link: 'https://github.com/maqingbo/web-apis' }
+    ],
     logo: '/images/logo.png',
     displayAllHeaders: false,
     lastUpdated: '上次更新',
@@ -25,9 +28,9 @@ module.exports = {
         sidebarDepth: 1,    // 可选的, 默认值是 1
         children: [
           ['/parts/document/DOM', 'DOM'],
-          // ['/parts/document/html', 'HTML'],
-          ['/parts/document/htmlDOM', 'HTML DOM'],
-          ['/parts/document/htmlDragAndDrop', 'HTML Drag and Drop']
+          ['/parts/document/html', 'HTML'],
+          ['/parts/document/htmlDOM', 'HTML DOM']
+          // ['/parts/document/htmlDragAndDrop', 'HTML Drag and Drop']
         ]
       },
       {
@@ -38,6 +41,14 @@ module.exports = {
           ['/parts/getData/XHR', 'XMLHttpRequest'],
           // ['/parts/getData/formData', 'FormData'],
           ['/parts/getData/fetch', 'Fetch']
+        ]
+      },
+      {
+        title: '二进制数据，文件',
+        path: '/parts/binary/',
+        collapsable: false,
+        children: [
+          ['/parts/binary/inBox', '收集箱']
         ]
       },
       {
