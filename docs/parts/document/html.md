@@ -1,4 +1,4 @@
-[HTML 规范](https://html.spec.whatwg.org/) 大致结构：
+截止至 2022-3-22，[HTML 规范](https://html.spec.whatwg.org/) 大致结构：
 
 1. 概述
 2. 公共基础设施
