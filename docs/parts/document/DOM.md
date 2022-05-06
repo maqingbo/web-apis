@@ -55,21 +55,80 @@ DOM Standard 大致内容如下：
 
 对应的具体接口 (interface)：
 
-**Event**：事件对象。表示事件发生，对象本身提供了一些属性和方法，包含了事件本身的各种信息。
+**Event**：事件对象。表示事件发生，对象本身提供了一些属性和方法，包含了事件本身的各种信息。Event 本身是构造函数，可以用来生成新的实例，所有的事件都是这个对象的实例。
 
-**CustomEvent**：自定义事件。继承自 Event 对象，可以创建自定义功能的事件。
+```js
+const event = new Event(type, options);
+
+// options 支持三个字段：composed、cancelable、bubbles
+const e = new Event('look', {'bubbles': true, 'cancelable': false})
+```
+
+- Event.type 事件类型，不分大小写
+- Event.target 事件的原始触发节点
+- Event.currentTarget 事件当前通过的节点
+- Event.bubbles 是否可冒泡
+- Event.eventPhase 事件流所处阶段，0 到 4 分别表示没事件、捕获阶段、在 target、冒泡阶段
+- Event.cancelable 事件是否可取消
+- Event.cancelBubble 读写，是否可冒泡，是 Event.stopPropagation() 的历史别名
+- Event.composed 事件冒泡是否可以穿越 shadow dom 和常规 dom 的边界
+- Event.defaultPrevented 是否调用过 event.preventDefault() 取消事件
+- Event.returnValue 读写是否被取消，由 ie 引入为了兼容所以引入标准但不建议使用
+- Event.timeStamp 事件创建时的时间戳，相对于网页加载成功开始计算
+- Event.isTrusted 表示是由用户触发 (true) 还是脚本触发 (false)
+
+**CustomEvent**：自定义事件对象。继承自 Event 对象，可自定义事件的信息，传递指定的数据。
 
 ```js
 // 添加一个事件监听器
-obj.addEventListener("cat", function(e) { process(e.detail) })
-
-// 创建并分发事件
-var event = new CustomEvent("cat", { "detail":{ "cute":true }})
-obj.dispatchEvent(event)
+obj.addEventListener("cat", function(e) { console.log(e) })
+// detail 标识自定义的数据
+const customEvent = new CustomEvent("cat", { "detail":{ "cute":true }})
+// 脚本触发事件
+obj.dispatchEvent(customEvent)
 ```
 
+**EventTarget**：一个用来接收事件、创建侦听器的对象。
+
+由于 DOM 的节点都需要有接收事件的功能，所以 EventTarget 被设计在了原型链的最末端。EventTarget 主要有三个方法：
+
+- addEventListener()：绑定事件的监听函数
+- removeEventListener()：移除事件的监听函数
+- dispatchEvent()：触发事件
+
+:::tip 注意
+dispatchEvent 方法触发的事件**同步执行**，用户触发的事件**异步执行**。
+:::
+
 ### Aborting ongoing activities（终止正在进行的活动）
+
+Promise 内部没有提供取消机制，但有时我们又确实需要用到取消机制，所以 DOM 中提供了 AbortController 控制器对象，允许你根据需要中止一个或多个 Web 请求。
+
+目前 Fetch API 已经实现了这个规范。下面是 Promise 中使用控制器对象的一个示例：
+
+```js
+const controller = new AbortController();
+const signal = controller.signal;
+
+startSpinner();
+
+request({ ..., signal })
+  .then(result => ...)
+  .catch(err => {
+    if (err.name === 'AbortError') return;
+    showUserErrorMessage();
+  })
+  .then(() => stopSpinner());
+
+// …
+
+controller.abort();
+```
+
 ### Nodes（节点）
+
+
+
 ### Ranges（范围）
 ### Traversal（遍历）
 ### Sets（DOMTokenList）
