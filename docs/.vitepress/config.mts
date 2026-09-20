@@ -8,9 +8,22 @@ export default defineConfig({
   rewrites: {
     'README.md': 'index.md',
     'parts/map/README.md': 'parts/map/index.md',
+    'parts/fundamentals/README.md': 'parts/fundamentals/index.md',
+    'parts/document/README.md': 'parts/document/index.md',
+    'parts/getData/README.md': 'parts/getData/index.md',
+    'parts/binary/README.md': 'parts/binary/index.md',
+    'parts/storage/README.md': 'parts/storage/index.md',
+    'parts/draw/README.md': 'parts/draw/index.md',
+    'parts/av/README.md': 'parts/av/index.md',
+    'parts/rtc/README.md': 'parts/rtc/index.md',
+    'parts/workers/README.md': 'parts/workers/index.md',
+    'parts/performance/README.md': 'parts/performance/index.md',
+    'parts/security/README.md': 'parts/security/index.md',
+    'parts/device/README.md': 'parts/device/index.md',
     'parts/webApis/README.md': 'parts/webApis/index.md'
   },
-  title: 'web-apis',
+  title: 'Web API 知识地图',
+  description: '系统梳理浏览器 API、运行机制与能力边界',
   head: [
     ['link', { rel: 'icon', href: `${base}images/icon.png` }]
   ],
@@ -54,7 +67,15 @@ export default defineConfig({
     sidebar: [
       { text: '总览', link: '/parts/map/' },
       {
-        text: '文档相关',
+        text: '平台基础',
+        link: '/parts/fundamentals/',
+        collapsed: false,
+        items: [
+          { text: '事件', link: '/parts/webApis/event' }
+        ]
+      },
+      {
+        text: '文档与界面',
         link: '/parts/document/',
         collapsed: false,
         items: [
@@ -64,7 +85,7 @@ export default defineConfig({
         ]
       },
       {
-        text: '获取资源',
+        text: '网络与数据传输',
         link: '/parts/getData/',
         collapsed: false,
         items: [
@@ -73,7 +94,7 @@ export default defineConfig({
         ]
       },
       {
-        text: '二进制数据，文件',
+        text: '二进制数据与文件',
         link: '/parts/binary/',
         collapsed: false,
         items: [
@@ -86,8 +107,8 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: 'Web Storage', link: '/parts/storage/webStorage' },
-          { text: 'indexDB', link: '/parts/storage/indexDB' },
-          { text: 'Cache', link: '/parts/storage/cache' }
+          { text: 'IndexedDB', link: '/parts/storage/indexDB' },
+          { text: 'Cache Storage', link: '/parts/storage/cache' }
         ]
       },
       {
@@ -95,7 +116,8 @@ export default defineConfig({
         link: '/parts/draw/',
         collapsed: false,
         items: [
-          { text: 'Canvas', link: '/parts/draw/canvas' }
+          { text: 'Canvas', link: '/parts/draw/canvas' },
+          { text: 'WebGL', link: '/parts/webApis/WebGL' }
         ]
       },
       {
@@ -108,13 +130,17 @@ export default defineConfig({
         ]
       },
       {
-        text: '实时通讯',
+        text: '实时通信',
         link: '/parts/rtc/',
         collapsed: false,
         items: [
-          { text: 'Web RTC', link: '/parts/rtc/webRTC' }
+          { text: 'WebRTC', link: '/parts/rtc/webRTC' }
         ]
-      }
+      },
+      { text: '后台与并发', link: '/parts/workers/' },
+      { text: '性能与观察', link: '/parts/performance/' },
+      { text: '安全与权限', link: '/parts/security/' },
+      { text: '设备能力', link: '/parts/device/' }
     ]
   }
 })

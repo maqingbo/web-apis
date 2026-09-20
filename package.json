@@ -1,7 +1,7 @@
 {
   "name": "web-apis",
   "version": "1.0.0",
-  "description": "个人前端学习知识点查漏补缺。",
+  "description": "系统梳理浏览器 API、运行机制与能力边界",
   "private": true,
   "engines": {
     "node": "^20.19.0 || ^22.13.0 || >=24"
