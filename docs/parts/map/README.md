@@ -91,7 +91,7 @@ Canvas ──> ImageBitmap / Blob
 
 ## 标准从哪里来
 
-Web 平台由多个组织共同维护，不能只按 W3C 或 WHATWG 二选一理解。
+Web apis 由多个组织共同维护。
 
 - [WHATWG](https://spec.whatwg.org/)：维护 HTML、DOM、Fetch、URL、Streams、Storage 等 Living Standards。
 - [W3C](https://www.w3.org/TR/?tag=webapi)：发布 WebRTC、Web Audio、Pointer Events、Web Authentication 等标准和草案。
