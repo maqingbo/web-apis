@@ -12,6 +12,7 @@ Web 平台提供从保留元素结构的 SVG、立即模式的 Canvas 2D，到�
 | 二维绘制 | Canvas API、`HTMLCanvasElement`、`CanvasRenderingContext2D`、`Path2D` | 像素绘制、图像处理和高频二维场景 |
 | 离屏绘制 | `OffscreenCanvas`、`ImageBitmap`、`createImageBitmap()` | 在 Worker 中绘制或高效传递图像资源 |
 | 三维与 GPU 绘制 | WebGL、WebGL 2、`WebGLRenderingContext`、`WebGL2RenderingContext` | 基于 GPU 的二维或三维渲染 |
+| 上层渲染库 | Three.js | 使用场景图、相机、材质和模型构建三维内容 |
 | 现代 GPU | WebGPU：`GPU`、`GPUAdapter`、`GPUDevice`、`GPUCanvasContext` | 现代 GPU 渲染和通用计算，支持度需确认 |
 | CSS 绘制扩展 | CSS Painting API、`PaintWorklet` | 使用 Worklet 生成 CSS 图像，支持度有限 |
 | 图像处理与解码 | `ImageData`、`ImageBitmap`、`createImageBitmap()`、WebCodecs `ImageDecoder` | 操作像素并解码图像资源 |
@@ -25,7 +26,12 @@ Three.js、PixiJS 等是构建在浏览器图形 API 之上的库，不属于 We
 
 ## 已有专题
 
-- [Canvas](/parts/draw/canvas)
+- [SVG](/parts/draw/svg)
+- [Canvas 2D](/parts/draw/canvas)
+- [图像数据与资源](/parts/draw/imageData)
+- [OffscreenCanvas](/parts/draw/offscreenCanvas)
 - [WebGL](/parts/webApis/WebGL)
+- [Three.js](/parts/draw/threejs)
+- [WebGPU](/parts/draw/webGPU)
 - [二进制数据与图像类型](/parts/binary/)
 - [后台与并发](/parts/workers/)

@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 
-const base = '/web-apis/'
+const base = '/product/web-apis/'
 
 export default defineConfig({
   base,
@@ -78,6 +78,7 @@ export default defineConfig({
       }
     },
     nav: [
+      { text: '主站', link: 'https://maqingbo.com' },
       { text: 'GitHub', link: 'https://github.com/maqingbo/web-apis' }
     ],
     lastUpdated: {
@@ -138,8 +139,13 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: '概览', link: '/parts/draw/' },
-          { text: 'Canvas', link: '/parts/draw/canvas' },
-          { text: 'WebGL', link: '/parts/webApis/WebGL' }
+          { text: 'SVG', link: '/parts/draw/svg' },
+          { text: 'Canvas 2D', link: '/parts/draw/canvas' },
+          { text: '图像数据与资源', link: '/parts/draw/imageData' },
+          { text: 'OffscreenCanvas', link: '/parts/draw/offscreenCanvas' },
+          { text: 'WebGL', link: '/parts/webApis/WebGL' },
+          { text: 'Three.js', link: '/parts/draw/threejs' },
+          { text: 'WebGPU', link: '/parts/draw/webGPU' }
         ]
       },
       {
