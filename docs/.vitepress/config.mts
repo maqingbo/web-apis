@@ -1,10 +1,11 @@
 import { defineConfig } from 'vitepress'
 
-const base = '/product/web-apis/'
+const base = '/web-apis/'
 
 export default defineConfig({
   base,
   outDir: '../dist',
+  appearance: 'dark',
   rewrites: {
     'README.md': 'index.md',
     'parts/map/README.md': 'parts/map/index.md',
